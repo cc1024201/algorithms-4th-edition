@@ -10,9 +10,10 @@
  *
  *  % java Brownian 0.5
  *
- ******************************************************************************/
+ *****************************************************************************
+ * @author zhcao*/
 
-public class Brownian { 
+public class Brownian {
 
     // midpoint displacement method
     public static void curve(double x0, double y0, double x1, double y1, double var, double s) {
@@ -25,13 +26,13 @@ public class Brownian {
         double xm = (x0 + x1) / 2;
         double ym = (y0 + y1) / 2;
         ym = ym + StdRandom.gaussian(0, Math.sqrt(var));
-        curve(x0, y0, xm, ym, var/s, s);
-        curve(xm, ym, x1, y1, var/s, s);
-    } 
+        curve(x0, y0, xm, ym, var / s, s);
+        curve(xm, ym, x1, y1, var / s, s);
+    }
 
-    public static void main(String[] args) { 
-        double hurstExponent = Double.parseDouble(args[0]); 
-        double s = Math.pow(2, 2*hurstExponent); 
-        curve(0.0, 0.5, 1.0, 0.5, 0.01, s); 
-    } 
+    public static void main(String[] args) {
+        double hurstExponent = Double.parseDouble(args[0]);
+        double s = Math.pow(2, 2 * hurstExponent);
+        curve(0.0, 0.5, 1.0, 0.5, 0.01, s);
+    }
 } 
