@@ -2,7 +2,7 @@
  *  Compilation:  javac Bernoulli.java
  *  Execution:    java Bernoulli n trials
  *  Dependencies: StdDraw.java StdRandom.java Gaussian.java StdStats.java
- *  
+ *
  *  Each experiment consists of flipping n fair coins trials times.
  *  Plots a histogram of the number of times i of the n coins are heads.
  *
@@ -12,11 +12,11 @@
  *
  *  % java Bernoulli 128 1000
  *
- ******************************************************************************/
+ *****************************************************************************
+ * @author zhcao*/
 
 
-
-public class Bernoulli { 
+public class Bernoulli {
 
     // number of heads when flipping n biased-p coins
     public static int binomial(int n, double p) {
@@ -27,7 +27,7 @@ public class Bernoulli {
             }
         }
         return heads;
-    } 
+    }
 
     // number of heads when flipping n fair coins
     // or call binomial(n, 0.5)
@@ -39,22 +39,22 @@ public class Bernoulli {
             }
         }
         return heads;
-    } 
+    }
 
-    public static void main(String[] args) { 
+    public static void main(String[] args) {
         int n = Integer.parseInt(args[0]);        // number of coins to flip per trial
         int trials = Integer.parseInt(args[1]);   // number of trials
 
         StdDraw.setYscale(0, 0.2);
 
         // flip n fair coins, trials times
-        int[] freq = new int[n+1];
+        int[] freq = new int[n + 1];
         for (int t = 0; t < trials; t++) {
             freq[binomial(n)]++;
         }
 
         // plot normalized values
-        double[] normalized = new double[n+1];
+        double[] normalized = new double[n + 1];
         for (int i = 0; i <= n; i++) {
             normalized[i] = (double) freq[i] / trials;
         }
@@ -63,10 +63,10 @@ public class Bernoulli {
         // plot Gaussian approximation
         double mean = n / 2.0;
         double stddev = Math.sqrt(n) / 2.0;
-        double[] phi  = new double[n+1];
+        double[] phi = new double[n + 1];
         for (int i = 0; i <= n; i++) {
             phi[i] = Gaussian.pdf(i, mean, stddev);
         }
         StdStats.plotLines(phi);
-    } 
+    }
 } 
