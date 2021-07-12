@@ -16,7 +16,8 @@
  *  % java CouponCollector 1000000
  *  12782673
  *
- ******************************************************************************/
+ *****************************************************************************
+ * @author zhcao*/
 
 public class CouponCollector {
     public static void main(String[] args) {
@@ -24,7 +25,7 @@ public class CouponCollector {
         boolean[] isCollected = new boolean[n];  // isCollected[i] = true if card i has been collected
         int count = 0;                           // total number of cards collected
         int distinct = 0;                        // number of distinct cards
-  
+
         // repeatedly choose a random card and check whether it's a new one
         while (distinct < n) {
             int value = (int) (Math.random() * n);   // random card between 0 and n-1

@@ -11,7 +11,8 @@
  *  % java Sample 10 1000
  *  656 488 298 534 811 97 813 156 424 109
  *
- ******************************************************************************/
+ *****************************************************************************
+ * @author zhcao*/
 
 public class Sample {
     public static void main(String[] args) {
@@ -20,14 +21,15 @@ public class Sample {
 
         // create permutation 0, 1, ..., n-1
         int[] perm = new int[n];
-        for (int i = 0; i < n; i++)
+        for (int i = 0; i < n; i++) {
             perm[i] = i;
+        }
 
         // create random sample in perm[0], perm[1], ..., perm[m-1]
-        for (int i = 0; i < m; i++)  {
+        for (int i = 0; i < m; i++) {
 
             // random integer between i and n-1
-            int r = i + (int) (Math.random() * (n-i));
+            int r = i + (int) (Math.random() * (n - i));
 
             // swap elements at indices i and r
             int t = perm[r];
@@ -36,8 +38,9 @@ public class Sample {
         }
 
         // print results
-        for (int i = 0; i < m; i++)
+        for (int i = 0; i < m; i++) {
             System.out.print(perm[i] + " ");
+        }
         System.out.println();
     }
 }
