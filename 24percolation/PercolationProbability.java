@@ -2,14 +2,15 @@
  *  Compilation:  javac PercolationProbability.java
  *  Execution:    java PercolationProbability n p trials
  *  Dependencies: Percolation.java StdOut.java
- * 
+ *
  *  Repeatedly generated n-by-n boolean matrices, where each site
  *  is true with probability p, and compute the probability that
  *  the system percolates.
  *
  *  % java PercolationProbability 32 0.4 10000
  *
- ******************************************************************************/
+ *****************************************************************************
+ * @author zhcao*/
 
 
 public class PercolationProbability {
@@ -19,8 +20,9 @@ public class PercolationProbability {
         int count = 0;
         for (int t = 0; t < trials; t++) {
             boolean[][] isOpen = Percolation.random(n, p);
-            if (Percolation.percolates(isOpen))
+            if (Percolation.percolates(isOpen)) {
                 count++;
+            }
         }
         return (double) count / trials;
     }

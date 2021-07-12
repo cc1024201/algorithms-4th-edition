@@ -70,18 +70,26 @@ public class Percolation {
         int n = isOpen.length;
 
         // base cases
-        if (i < 0 || i >= n) return;    // invalid row
-        if (j < 0 || j >= n) return;    // invalid column
-        if (!isOpen[i][j]) return;      // not an open site
-        if (isFull[i][j]) return;       // already marked as full
+        if (i < 0 || i >= n) {
+            return;    // invalid row
+        }
+        if (j < 0 || j >= n) {
+            return;    // invalid column
+        }
+        if (!isOpen[i][j]) {
+            return;      // not an open site
+        }
+        if (isFull[i][j]) {
+            return;       // already marked as full
+        }
 
         // mark i-j as full
         isFull[i][j] = true;
 
-        flow(isOpen, isFull, i+1, j);   // down
-        flow(isOpen, isFull, i, j+1);   // right
-        flow(isOpen, isFull, i, j-1);   // left
-        flow(isOpen, isFull, i-1, j);   // up
+        flow(isOpen, isFull, i + 1, j);   // down
+        flow(isOpen, isFull, i, j + 1);   // right
+        flow(isOpen, isFull, i, j - 1);   // left
+        flow(isOpen, isFull, i - 1, j);   // up
     }
 
 
@@ -90,7 +98,9 @@ public class Percolation {
         int n = isOpen.length;
         boolean[][] isFull = flow(isOpen);
         for (int j = 0; j < n; j++) {
-            if (isFull[n-1][j]) return true;
+            if (isFull[n - 1][j]) {
+                return true;
+            }
         }
         return false;
     }
@@ -100,19 +110,24 @@ public class Percolation {
         int n = a.length;
         StdDraw.setXscale(-1, n);
         StdDraw.setYscale(-1, n);
-        for (int i = 0; i < n; i++)
-            for (int j = 0; j < n; j++)
-                if (a[i][j] == which)
-                    StdDraw.filledSquare(j, n-i-1, 0.5);
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                if (a[i][j] == which) {
+                    StdDraw.filledSquare(j, n - i - 1, 0.5);
+                }
+            }
+        }
     }
 
     // return a random n-by-n boolean matrix, where each entry is
     // true with probability p
     public static boolean[][] random(int n, double p) {
         boolean[][] a = new boolean[n][n];
-        for (int i = 0; i < n; i++)
-            for (int j = 0; j < n; j++)
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
                 a[i][j] = StdRandom.bernoulli(p);
+            }
+        }
         return a;
     }
 
