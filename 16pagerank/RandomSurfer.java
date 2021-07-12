@@ -7,7 +7,8 @@
  *  % java Transition < tiny.txt | java RandomSurfer 1000000
  *   0.27297 0.26583 0.14598 0.24729 0.06793
  *
- ******************************************************************************/
+ *****************************************************************************
+ * @author zhcao*/
 
 public class RandomSurfer {
     public static void main(String[] args) {
@@ -21,37 +22,39 @@ public class RandomSurfer {
 
         // Read transition matrix.
         double[][] p = new double[n][n];          // p[i][j] = prob. that surfer moves from page i to page j
-        for (int i = 0; i < n; i++)
-            for (int j = 0; j < n; j++) 
-                p[i][j] = StdIn.readDouble(); 
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                p[i][j] = StdIn.readDouble();
+            }
+        }
 
 
         int[] freq = new int[n];                  // freq[i] = # times surfer hits page i
- 
+
         // Start at page 0. 
         int page = 0;
 
         for (int t = 0; t < trials; t++) {
 
             // Make one random move. 
-            double r = Math.random(); 
-            double sum = 0.0; 
+            double r = Math.random();
+            double sum = 0.0;
             for (int j = 0; j < n; j++) {
                 // Find interval containing r. 
-                sum += p[page][j]; 
+                sum += p[page][j];
                 if (r < sum) {
                     page = j;
                     break;
-                } 
-            } 
-            freq[page]++; 
-        } 
+                }
+            }
+            freq[page]++;
+        }
 
 
         // Print page ranks. 
         for (int i = 0; i < n; i++) {
-            StdOut.printf("%8.5f", (double) freq[i] / trials); 
+            StdOut.printf("%8.5f", (double) freq[i] / trials);
         }
-        StdOut.println(); 
-    }  
+        StdOut.println();
+    }
 } 

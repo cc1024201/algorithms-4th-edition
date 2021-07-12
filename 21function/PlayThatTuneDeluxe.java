@@ -19,7 +19,8 @@
  *  http://www.cs.princeton.edu/introcs/21function/tomsdiner.txt
  *  http://www.cs.princeton.edu/introcs/21function/portal.txt
  *
- ******************************************************************************/
+ *****************************************************************************
+ * @author zhcao*/
 
 public class PlayThatTuneDeluxe {
 
@@ -32,29 +33,29 @@ public class PlayThatTuneDeluxe {
         // compute the weighted sum
         double[] c = new double[a.length];
         for (int i = 0; i < a.length; i++) {
-            c[i] = a[i]*awt + b[i]*bwt;
+            c[i] = a[i] * awt + b[i] * bwt;
         }
         return c;
-    } 
+    }
 
     // create a pure tone of the given frequency for the given duration
-    public static double[] tone(double hz, double duration) { 
+    public static double[] tone(double hz, double duration) {
         int n = (int) (StdAudio.SAMPLE_RATE * duration);
-        double[] a = new double[n+1];
+        double[] a = new double[n + 1];
         for (int i = 0; i <= n; i++) {
             a[i] = Math.sin(2 * Math.PI * i * hz / StdAudio.SAMPLE_RATE);
         }
-        return a; 
-    } 
+        return a;
+    }
 
     // create a note with harmonics of the given pitch and duration
     // (where 0 = concert A)
     public static double[] note(int pitch, double duration) {
         double hz = 440.0 * Math.pow(2, pitch / 12.0);
-        double[] a  = tone(hz, duration);
-        double[] hi = tone(2*hz, duration);
-        double[] lo = tone(hz/2, duration);
-        double[] h  = sum(hi, lo, 0.5, 0.5);
+        double[] a = tone(hz, duration);
+        double[] hi = tone(2 * hz, duration);
+        double[] lo = tone(hz / 2, duration);
+        double[] h = sum(hi, lo, 0.5, 0.5);
         return sum(a, h, 0.5, 0.5);
     }
 
@@ -69,5 +70,5 @@ public class PlayThatTuneDeluxe {
             double[] a = note(pitch, duration);
             StdAudio.play(a);
         }
-    } 
+    }
 } 

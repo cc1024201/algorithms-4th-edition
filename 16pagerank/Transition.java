@@ -28,7 +28,8 @@
  *   0.92 0.02 0.02 0.02 0.02
  *   0.47 0.02 0.47 0.02 0.02
  *
- ******************************************************************************/
+ *****************************************************************************
+ * @author zhcao*/
 
 
 public class Transition {
@@ -41,24 +42,24 @@ public class Transition {
         int[] outDegree = new int[n];      // outDegree[i] = # links from page i to anywhere
 
         // Accumulate link counts.  
-        while (!StdIn.isEmpty())  {
-            int i = StdIn.readInt(); 
-            int j = StdIn.readInt(); 
-            outDegree[i]++; 
-            counts[i][j]++; 
-        } 
-        StdOut.println(n + " " + n); 
+        while (!StdIn.isEmpty()) {
+            int i = StdIn.readInt();
+            int j = StdIn.readInt();
+            outDegree[i]++;
+            counts[i][j]++;
+        }
+        StdOut.println(n + " " + n);
 
 
         // Print probability distribution for row i. 
-        for (int i = 0; i < n; i++)  {
+        for (int i = 0; i < n; i++) {
 
             // Print probability for column j. 
             for (int j = 0; j < n; j++) {
-                double p = 0.90*counts[i][j]/outDegree[i] + 0.10/n; 
-                StdOut.printf("%7.5f ", p); 
-            } 
-            StdOut.println(); 
-        } 
-    } 
+                double p = 0.90 * counts[i][j] / outDegree[i] + 0.10 / n;
+                StdOut.printf("%7.5f ", p);
+            }
+            StdOut.println();
+        }
+    }
 } 

@@ -10,8 +10,9 @@
  *
  *  % java Coupon 1000000 
  *  12783771
- *  
- ******************************************************************************/
+ *
+ *****************************************************************************
+ * @author zhcao*/
 
 public class Coupon {
 
@@ -24,7 +25,7 @@ public class Coupon {
     public static int collect(int n) {
         boolean[] isCollected = new boolean[n];  // isCollected[i] = true if card type i already collected
         int count = 0;                           // number of cards collected
-        int distinct  = 0;                       // number of distinct card types collected
+        int distinct = 0;                       // number of distinct card types collected
 
         // repeat until you've collected all n card types
         while (distinct < n) {
@@ -43,5 +44,5 @@ public class Coupon {
         int n = Integer.parseInt(args[0]);
         int count = collect(n);
         StdOut.println(count);
-    } 
+    }
 } 
