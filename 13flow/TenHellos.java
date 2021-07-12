@@ -1,7 +1,7 @@
 /******************************************************************************
  *  Compilation:  javac TenHellos.java
  *  Execution:    java TenHellos
- * 
+ *
  *  Prints ith Hello for i = 1 to 10. Illlustrates using a while loop
  *  for a repetitive task.
  *
@@ -17,9 +17,10 @@
  *  9th Hello
  *  10th Hello
  *
- ******************************************************************************/
+ *****************************************************************************
+ * @author zhcao*/
 
-public class TenHellos { 
+public class TenHellos {
     public static void main(String[] args) {
 
         // print out special cases whose ordinal doesn't end in th

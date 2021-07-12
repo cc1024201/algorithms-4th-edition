@@ -1,7 +1,7 @@
 /******************************************************************************
  *  Compilation:  javac Gambler.java
  *  Execution:    java Gambler stake goal N
- *  
+ *
  *  Simulates a gambler who start with $stake and place fair $1 bets
  *  until she goes broke or reach $goal. Keeps track of the number of
  *  times she wins and the number of bets she makes. Run the experiment N
@@ -16,19 +16,20 @@
  *  337 wins of 1000
  *  Percent of games won = 33.7
  *  Avg # bets           = 4863.95
- * 
+ *
  *  % java Gambler 50 100 1000
  *  503 wins of 1000
  *  Percent of games won = 50.3
  *  Avg # bets           = 2464.59
  *
- ******************************************************************************/
+ *****************************************************************************
+ * @author zhcao*/
 
-public class Gambler { 
+public class Gambler {
 
     public static void main(String[] args) {
-        int stake  = Integer.parseInt(args[0]);    // gambler's stating bankroll
-        int goal   = Integer.parseInt(args[1]);    // gambler's desired bankroll
+        int stake = Integer.parseInt(args[0]);    // gambler's stating bankroll
+        int goal = Integer.parseInt(args[1]);    // gambler's desired bankroll
         int trials = Integer.parseInt(args[2]);    // number of trials to perform
 
         int bets = 0;        // total number of bets made
@@ -41,10 +42,15 @@ public class Gambler {
             int cash = stake;
             while (cash > 0 && cash < goal) {
                 bets++;
-                if (Math.random() < 0.5) cash++;     // win $1
-                else                     cash--;     // lose $1
+                if (Math.random() < 0.5) {
+                    cash++;     // win $1
+                } else {
+                    cash--;     // lose $1
+                }
             }
-            if (cash == goal) wins++;                // did gambler go achieve desired goal?
+            if (cash == goal) {
+                wins++;                // did gambler go achieve desired goal?
+            }
         }
 
         // print results

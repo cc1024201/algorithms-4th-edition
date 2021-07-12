@@ -24,7 +24,8 @@
  *  -------
  *  could use Integer.toBinaryString(N) instead.
  *
- ******************************************************************************/
+ *****************************************************************************
+ * @author zhcao*/
 
 public class Binary {
     public static void main(String[] args) {

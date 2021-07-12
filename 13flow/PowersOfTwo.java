@@ -1,7 +1,7 @@
 /******************************************************************************
  *  Compilation:  javac PowersOfTwo.java
  *  Execution:    java PowersOfTwo n
- *  
+ *
  *  This program takes a command-line argument n and prints a table of
  *  the powers of 2 that are less than or equal to 2^n.
  *
@@ -26,7 +26,8 @@
  *  ------------
  *  Only works if 0 <= n < 31 since 2^31 overflows an int.
  *
- ******************************************************************************/
+ *****************************************************************************
+ * @author zhcao*/
 
 public class PowersOfTwo {
     public static void main(String[] args) {
