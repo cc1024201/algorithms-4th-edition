@@ -1,7 +1,7 @@
 /******************************************************************************
  *  Compilation:  javac Factors.java
  *  Execution:    java Factors n
- *  
+ *
  *  Computes the prime factorization of n using brute force.
  *
  *   % java Factors 81
@@ -15,7 +15,7 @@
  *
  *   % java Factors 4444444444444463
  *   The prime factorization of 4444444444444463 is: 4444444444444463
- * 
+ *
  *   % java Factors 10000001400000049
  *   The prime factorization of 10000001400000049 is: 100000007 100000007 
  *
@@ -39,11 +39,12 @@
  *
  *   - The last two examples still take a few minutes.
  *
- ******************************************************************************/
+ *****************************************************************************
+ * @author zhcao*/
 
 public class Factors {
 
-    public static void main(String[] args) { 
+    public static void main(String[] args) {
 
         // command-line argument
         long n = Long.parseLong(args[0]);
@@ -51,17 +52,20 @@ public class Factors {
         System.out.print("The prime factorization of " + n + " is: ");
 
         // for each potential factor
-        for (long factor = 2; factor*factor <= n; factor++) {
+        for (long factor = 2; factor * factor <= n; factor++) {
 
             // if factor is a factor of n, repeatedly divide it out
             while (n % factor == 0) {
-                System.out.print(factor + " "); 
+                System.out.print(factor + " ");
                 n = n / factor;
             }
         }
 
         // if biggest factor occurs only once, n > 1
-        if (n > 1) System.out.println(n);
-        else       System.out.println();
+        if (n > 1) {
+            System.out.println(n);
+        } else {
+            System.out.println();
+        }
     }
 }

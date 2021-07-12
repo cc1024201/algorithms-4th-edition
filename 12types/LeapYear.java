@@ -1,7 +1,7 @@
 /******************************************************************************
  *  Compilation:  javac LeapYear.java
  *  Execution:    java LeapYear n
- *  
+ *
  *  Prints true if n corresponds to a leap year, and false otherwise.
  *  Assumes n >= 1582, corresponding to a year in the Gregorian calendar.
  *
@@ -14,10 +14,11 @@
  *  % java LeapYear 2000
  *  true
  *
- ******************************************************************************/
+ *****************************************************************************
+ * @author zhcao*/
 
-public class LeapYear { 
-    public static void main(String[] args) { 
+public class LeapYear {
+    public static void main(String[] args) {
         int year = Integer.parseInt(args[0]);
         boolean isLeapYear;
 
