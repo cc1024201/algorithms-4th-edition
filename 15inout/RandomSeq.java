@@ -11,9 +11,10 @@
  *  0.4165639935584283
  *  0.4603525361488371
  *
- ******************************************************************************/
+ *****************************************************************************
+ * @author zhcao*/
 
-public class RandomSeq { 
+public class RandomSeq {
     public static void main(String[] args) {
 
         // command-line argument

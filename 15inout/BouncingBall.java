@@ -7,9 +7,10 @@
  *
  *  % java BouncingBall
  *
- ******************************************************************************/
+ *****************************************************************************
+ * @author zhcao*/
 
-public class BouncingBall { 
+public class BouncingBall {
     public static void main(String[] args) {
 
         // set the scale of the coordinate system
@@ -23,22 +24,26 @@ public class BouncingBall {
         double radius = 0.05;              // radius
 
         // main animation loop
-        while (true)  { 
+        while (true) {
 
             // bounce off wall according to law of elastic collision
-            if (Math.abs(rx + vx) > 1.0 - radius) vx = -vx;
-            if (Math.abs(ry + vy) > 1.0 - radius) vy = -vy;
+            if (Math.abs(rx + vx) > 1.0 - radius) {
+                vx = -vx;
+            }
+            if (Math.abs(ry + vy) > 1.0 - radius) {
+                vy = -vy;
+            }
 
             // update position
-            rx = rx + vx; 
-            ry = ry + vy; 
+            rx = rx + vx;
+            ry = ry + vy;
 
             // clear the background
             StdDraw.clear(StdDraw.LIGHT_GRAY);
 
             // draw ball on the screen
-            StdDraw.setPenColor(StdDraw.BLACK); 
-            StdDraw.filledCircle(rx, ry, radius); 
+            StdDraw.setPenColor(StdDraw.BLACK);
+            StdDraw.filledCircle(rx, ry, radius);
 
             // copy offscreen buffer to onscreen
             StdDraw.show();
@@ -46,6 +51,6 @@ public class BouncingBall {
             // pause for 20 ms
             StdDraw.pause(20);
 
-        } 
-    } 
+        }
+    }
 } 

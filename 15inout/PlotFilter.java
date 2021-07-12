@@ -2,14 +2,15 @@
  *  Compilation:  javac PlotFilter.java
  *  Execution:    java PlotFilter < input.txt
  *  Dependencies: StdDraw.java StdIn.java
- *  
+ *
  *  % java PlotFilter < USA.txt
  *
  *  Datafiles:    http://introcs.cs.princeton.edu/java/15inout/USA.txt
  *
- ******************************************************************************/
+ *****************************************************************************
+ * @author zhcao*/
 
-public class PlotFilter { 
+public class PlotFilter {
 
     public static void main(String[] args) {
 

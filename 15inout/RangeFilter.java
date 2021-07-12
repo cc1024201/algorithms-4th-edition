@@ -26,6 +26,6 @@ public class RangeFilter {
                 StdOut.print(t + " ");
             }
         }
-        StdOut.println(); 
-    } 
+        StdOut.println();
+    }
 } 

@@ -17,7 +17,8 @@
  *  Too low 
  *  ... 
  *
- ******************************************************************************/
+ *****************************************************************************
+ * @author zhcao*/
 
 public class TwentyQuestions {
 
@@ -29,15 +30,19 @@ public class TwentyQuestions {
 
         StdOut.print("I'm thinking of a number ");
         StdOut.println("between 1 and 1,000,000");
-        int guess = 0; 
+        int guess = 0;
         while (guess != secret) {
 
             // Solicit one guess and provide one answer
             StdOut.print("What's your guess? ");
             guess = StdIn.readInt();
-            if      (guess < secret) StdOut.println("Too low");
-            else if (guess > secret) StdOut.println("Too high");
-            else                     StdOut.println("You win!");
+            if (guess < secret) {
+                StdOut.println("Too low");
+            } else if (guess > secret) {
+                StdOut.println("Too high");
+            } else {
+                StdOut.println("You win!");
+            }
         }
     }
 } 
