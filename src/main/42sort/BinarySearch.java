@@ -7,7 +7,7 @@
  *  Read in an alphabetical list of words from the given file.
  *  Then prompt the user to enter words. The program reports which
  *  words are *not* in the wordlist.
- * 
+ *
  *  % java BinarySearch whitelist.txt < emails.html
  *  marvin@spam
  *  mallory@spam
@@ -23,16 +23,23 @@ public class BinarySearch {
     public static int search(String key, String[] a) {
         return search(key, a, 0, a.length);
     }
+
     public static int search(String key, String[] a, int lo, int hi) {
-System.out.println("lo  = " + lo);
-System.out.println("hi  = " + hi);
+        System.out.println("lo  = " + lo);
+        System.out.println("hi  = " + hi);
         // possible key indices in [lo, hi)
-        if (hi <= lo) return -1;
+        if (hi <= lo) {
+            return -1;
+        }
         int mid = lo + (hi - lo) / 2;
         int cmp = a[mid].compareTo(key);
-        if      (cmp > 0) return search(key, a, lo, mid);
-        else if (cmp < 0) return search(key, a, mid+1, hi);
-        else              return mid;
+        if (cmp > 0) {
+            return search(key, a, lo, mid);
+        } else if (cmp < 0) {
+            return search(key, a, mid + 1, hi);
+        } else {
+            return mid;
+        }
     }
 
 
@@ -50,7 +57,9 @@ System.out.println("hi  = " + hi);
         // prompt user to enter a word and check if it's there
         while (!StdIn.isEmpty()) {
             String key = StdIn.readString();
-            if (search(key, words) < 0) StdOut.println(key);
+            if (search(key, words) < 0) {
+                StdOut.println(key);
+            }
         }
     }
 }

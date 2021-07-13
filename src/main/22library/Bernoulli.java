@@ -65,7 +65,7 @@ public class Bernoulli {
         double stddev = Math.sqrt(n) / 2.0;
         double[] phi = new double[n + 1];
         for (int i = 0; i <= n; i++) {
-            phi[i] = Gaussian.pdf(i, mean, stddev);
+            phi[i] = Gaussian2.pdf(i, mean, stddev);
         }
         StdStats.plotLines(phi);
     }

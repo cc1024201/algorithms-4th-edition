@@ -6,7 +6,8 @@
  *  Implementation of a 2D Body with a position, velocity and mass.
  *
  *
- ******************************************************************************/
+ *****************************************************************************
+ * @author zhcao*/
 
 public class Body {
     private Vector r;           // position
@@ -20,7 +21,7 @@ public class Body {
     }
 
     public void move(Vector f, double dt) {
-        Vector a = f.scale(1/mass);
+        Vector a = f.scale(1 / mass);
         v = v.plus(a.scale(dt));
         r = r.plus(v.scale(dt));
     }

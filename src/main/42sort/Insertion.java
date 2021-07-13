@@ -3,14 +3,15 @@
  *  Execution:    java Insertion < input.txt
  *  Data files:   http://www.cs.princeton.edu/introcs/43sort/8words.txt
  *                http://www.cs.princeton.edu/introcs/43sort/TomSawyer.txt
- *  
+ *
  *  Reads in strings from standard input and prints them in sorted order.
  *  Uses insertion sort.
  *
  *  % java Insertion < 8words.txt
  *  and but had him his the was you 
  *
- ******************************************************************************/
+ *****************************************************************************
+ * @author zhcao*/
 
 public class Insertion {
 
@@ -19,10 +20,11 @@ public class Insertion {
         int n = a.length;
         for (int i = 1; i < n; i++) {
             for (int j = i; j > 0; j--) {
-                if (a[j-1].compareTo(a[j]) > 0) {
-                    exch(a, j-1, j);
+                if (a[j - 1].compareTo(a[j]) > 0) {
+                    exch(a, j - 1, j);
+                } else {
+                    break;
                 }
-                else break;
             }
         }
     }

@@ -19,23 +19,29 @@
  *  Is it less than 77?  false
  *  Your number is 77
  *
- ******************************************************************************/
+ *****************************************************************************
+ * @author zhcao*/
 
 public class Questions {
 
     // invariant: answer is in [lo, hi)
     public static int search(int lo, int hi) {
-        if ((hi - lo) == 1) return lo;
+        if ((hi - lo) == 1) {
+            return lo;
+        }
         int mid = lo + (hi - lo) / 2;
         StdOut.printf("Is it less than %d?  ", mid);
-        if (StdIn.readBoolean()) return search(lo, mid);
-        else                     return search(mid, hi);
+        if (StdIn.readBoolean()) {
+            return search(lo, mid);
+        } else {
+            return search(mid, hi);
+        }
     }
 
     public static void main(String[] args) {
         int k = Integer.parseInt(args[0]);
         int n = (int) Math.pow(2, k);
-        StdOut.printf("Think of an integer between %d and %d\n", 0, n-1);
+        StdOut.printf("Think of an integer between %d and %d\n", 0, n - 1);
         int secret = search(0, n);
         StdOut.printf("Your number is %d\n", secret);
     }

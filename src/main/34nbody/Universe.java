@@ -14,7 +14,8 @@
  *  %  java Universe 25000 < 4body.txt
  *
  *
- ******************************************************************************/
+ *****************************************************************************
+ * @author zhcao*/
 
 public class Universe {
     private final int n;             // number of bodies
@@ -24,28 +25,28 @@ public class Universe {
     public Universe() {
 
         // number of bodies
-        n = StdIn.readInt(); 
+        n = StdIn.readInt();
 
         // the set scale for drawing on screen
-        double radius = StdIn.readDouble(); 
-        StdDraw.setXscale(-radius, +radius); 
-        StdDraw.setYscale(-radius, +radius); 
+        double radius = StdIn.readDouble();
+        StdDraw.setXscale(-radius, +radius);
+        StdDraw.setYscale(-radius, +radius);
 
         // read in the n bodies
-        bodies = new Body[n]; 
-        for (int i = 0; i < n; i++) { 
-            double rx   = StdIn.readDouble(); 
-            double ry   = StdIn.readDouble(); 
-            double vx   = StdIn.readDouble(); 
-            double vy   = StdIn.readDouble(); 
-            double mass = StdIn.readDouble(); 
-            double[] position = { rx, ry }; 
-            double[] velocity = { vx, vy }; 
-            Vector r = new Vector(position); 
-            Vector v = new Vector(velocity); 
-            bodies[i] = new Body(r, v, mass); 
-        } 
-    } 
+        bodies = new Body[n];
+        for (int i = 0; i < n; i++) {
+            double rx = StdIn.readDouble();
+            double ry = StdIn.readDouble();
+            double vx = StdIn.readDouble();
+            double vy = StdIn.readDouble();
+            double mass = StdIn.readDouble();
+            double[] position = {rx, ry};
+            double[] velocity = {vx, vy};
+            Vector r = new Vector(position);
+            Vector v = new Vector(velocity);
+            bodies[i] = new Body(r, v, mass);
+        }
+    }
 
     // increment time by dt units, assume forces are constant in given interval
     public void increaseTime(double dt) {
@@ -76,7 +77,7 @@ public class Universe {
         for (int i = 0; i < n; i++) {
             bodies[i].draw();
         }
-    } 
+    }
 
 
     // client to simulate a universe
@@ -85,11 +86,11 @@ public class Universe {
         double dt = Double.parseDouble(args[0]);
         StdDraw.enableDoubleBuffering();
         while (true) {
-            StdDraw.clear(); 
-            newton.increaseTime(dt); 
-            newton.draw(); 
+            StdDraw.clear();
+            newton.increaseTime(dt);
+            newton.draw();
             StdDraw.show();
             StdDraw.pause(10);
-        } 
-    } 
+        }
+    }
 }

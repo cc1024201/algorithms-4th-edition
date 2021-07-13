@@ -10,7 +10,8 @@
  *     8192 8.05
  *   ... 
  *
- ******************************************************************************/
+ *****************************************************************************
+ * @author zhcao*/
 
 public class DoublingTest {
 
@@ -25,14 +26,14 @@ public class DoublingTest {
     }
 
 
-    public static void main(String[] args) { 
+    public static void main(String[] args) {
         StdOut.printf("%7s %7s %4s\n", "size", "time", "ratio");
         double previous = timeTrial(256);
         for (int n = 512; true; n += n) {
             double current = timeTrial(n);
             StdOut.printf("%7d %7.2f %4.2f\n", n, current, current / previous);
             previous = current;
-        } 
-    } 
+        }
+    }
 } 
 
