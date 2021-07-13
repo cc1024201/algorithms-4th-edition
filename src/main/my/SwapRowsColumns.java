@@ -1,4 +1,6 @@
 /**
+ * 编写一段代码，打印出一个M行N列的二维数组的转置（交换行和列）
+ *
  * @author zhcao
  */
 public class SwapRowsColumns {

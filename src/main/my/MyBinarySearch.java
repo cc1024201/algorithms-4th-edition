@@ -1,6 +1,8 @@
 import java.util.Arrays;
 
 /**
+ * 二分查找
+ * <p>
  * 没有找到tinyW.txt 重点是rank()
  *
  * @author zhcao

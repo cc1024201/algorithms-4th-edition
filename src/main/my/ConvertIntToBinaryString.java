@@ -1,4 +1,6 @@
 /**
+ * 编写一段代码，将一个正整数N用二进制表示并转换为一个String类型的值s?
+ *
  * @author zhcao
  */
 public class ConvertIntToBinaryString {
