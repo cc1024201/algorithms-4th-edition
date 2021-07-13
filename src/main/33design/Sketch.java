@@ -7,7 +7,8 @@
  *  % java Sketch 2 16 < genome20.txt
  *
  *
- ******************************************************************************/
+ *****************************************************************************
+ * @author zhcao*/
 
 public class Sketch {
     private final Vector profile;         // unit vector
@@ -28,6 +29,7 @@ public class Sketch {
         return profile.dot(other.profile);
     }
 
+    @Override
     public String toString() {
         return "" + profile;
     }

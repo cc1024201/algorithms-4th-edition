@@ -21,7 +21,8 @@
  *  DJIA    0.18    0.24    0.23    0.25    0.05    1.00    0.16    0.11
  *  Amaz    0.21    0.18    0.16    0.19    0.39    0.16    1.00    0.07
  *
- ******************************************************************************/
+ *****************************************************************************
+ * @author zhcao*/
 
 public class CompareDocuments {
     public static void main(String[] args) {
@@ -37,7 +38,7 @@ public class CompareDocuments {
             String text = in.readAll();
             sketches[i] = new Sketch(text, k, d);
         }
-       
+
         // print header
         StdOut.print("    ");
         for (int i = 0; i < n; i++) {

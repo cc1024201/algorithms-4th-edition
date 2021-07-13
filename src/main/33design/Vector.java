@@ -23,7 +23,7 @@
  *
  ******************************************************************************/
 
-public class Vector { 
+public class Vector {
 
     private final int n;         // length of the vector
     private double[] data;       // array of vector's components
@@ -40,8 +40,9 @@ public class Vector {
 
         // defensive copy so that client can't alter our copy of data[]
         this.data = new double[n];
-        for (int i = 0; i < n; i++)
+        for (int i = 0; i < n; i++) {
             this.data[i] = data[i];
+        }
     }
 
     // create a vector from either an array or a vararg list
@@ -66,11 +67,13 @@ public class Vector {
 
     // return the inner product of this Vector a and b
     public double dot(Vector that) {
-        if (this.length() != that.length())
+        if (this.length() != that.length()) {
             throw new IllegalArgumentException("dimensions disagree");
+        }
         double sum = 0.0;
-        for (int i = 0; i < n; i++)
+        for (int i = 0; i < n; i++) {
             sum = sum + (this.data[i] * that.data[i]);
+        }
         return sum;
     }
 
@@ -81,28 +84,33 @@ public class Vector {
 
     // return the Euclidean distance between this and that
     public double distanceTo(Vector that) {
-        if (this.length() != that.length())
+        if (this.length() != that.length()) {
             throw new IllegalArgumentException("dimensions disagree");
+        }
         return this.minus(that).magnitude();
     }
 
     // return this + that
     public Vector plus(Vector that) {
-        if (this.length() != that.length())
+        if (this.length() != that.length()) {
             throw new IllegalArgumentException("dimensions disagree");
+        }
         Vector c = new Vector(n);
-        for (int i = 0; i < n; i++)
+        for (int i = 0; i < n; i++) {
             c.data[i] = this.data[i] + that.data[i];
+        }
         return c;
     }
 
     // return this - that
     public Vector minus(Vector that) {
-        if (this.length() != that.length())
+        if (this.length() != that.length()) {
             throw new IllegalArgumentException("dimensions disagree");
+        }
         Vector c = new Vector(n);
-        for (int i = 0; i < n; i++)
+        for (int i = 0; i < n; i++) {
             c.data[i] = this.data[i] - that.data[i];
+        }
         return c;
     }
 
@@ -115,34 +123,40 @@ public class Vector {
     @Deprecated
     public Vector times(double factor) {
         Vector c = new Vector(n);
-        for (int i = 0; i < n; i++)
+        for (int i = 0; i < n; i++) {
             c.data[i] = factor * data[i];
+        }
         return c;
     }
 
     // create and return a new object whose value is (this * factor)
     public Vector scale(double factor) {
         Vector c = new Vector(n);
-        for (int i = 0; i < n; i++)
+        for (int i = 0; i < n; i++) {
             c.data[i] = factor * data[i];
+        }
         return c;
     }
 
 
     // return the corresponding unit vector
     public Vector direction() {
-        if (this.magnitude() == 0.0)
+        if (this.magnitude() == 0.0) {
             throw new ArithmeticException("zero-vector has no direction");
+        }
         return this.scale(1.0 / this.magnitude());
     }
 
     // return a string representation of the vector
+    @Override
     public String toString() {
         StringBuilder s = new StringBuilder();
         s.append('(');
         for (int i = 0; i < n; i++) {
             s.append(data[i]);
-            if (i < n-1) s.append(", ");
+            if (i < n - 1) {
+                s.append(", ");
+            }
         }
         s.append(')');
         return s.toString();
@@ -151,8 +165,8 @@ public class Vector {
 
     // test client
     public static void main(String[] args) {
-        double[] xdata = { 1.0, 2.0, 3.0, 4.0 };
-        double[] ydata = { 5.0, 2.0, 4.0, 1.0 };
+        double[] xdata = {1.0, 2.0, 3.0, 4.0};
+        double[] ydata = {5.0, 2.0, 4.0, 1.0};
 
         Vector x = new Vector(xdata);
         Vector y = new Vector(ydata);

@@ -11,7 +11,8 @@
  *  4: 100185
  *  5: 99976
  *
- ******************************************************************************/
+ *****************************************************************************
+ * @author zhcao*/
 
 public class Counter implements Comparable<Counter> {
 
@@ -24,33 +25,41 @@ public class Counter implements Comparable<Counter> {
         name = id;
         maxCount = max;
         count = 0;
-    } 
+    }
 
     // increment the counter by 1
     public void increment() {
-        if (count < maxCount) count++;
-    } 
+        if (count < maxCount) {
+            count++;
+        }
+    }
 
     // return the current count
     public int value() {
         return count;
-    } 
+    }
 
     // return a string representation of this counter
+    @Override
     public String toString() {
         return name + ": " + count;
-    } 
+    }
 
     // compare two Counter objects based on their count
+    @Override
     public int compareTo(Counter that) {
-        if      (this.count < that.count) return -1;
-        else if (this.count > that.count) return +1;
-        else                              return  0;
+        if (this.count < that.count) {
+            return -1;
+        } else if (this.count > that.count) {
+            return +1;
+        } else {
+            return 0;
+        }
     }
 
 
     // test client
-    public static void main(String[] args) { 
+    public static void main(String[] args) {
         int n = Integer.parseInt(args[0]);
         int trials = Integer.parseInt(args[1]);
 
@@ -70,5 +79,5 @@ public class Counter implements Comparable<Counter> {
         for (int i = 0; i < n; i++) {
             StdOut.println(hits[i]);
         }
-    } 
+    }
 } 
