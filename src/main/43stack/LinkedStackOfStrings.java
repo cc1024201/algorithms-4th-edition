@@ -4,17 +4,20 @@
  *  Data files:   https://introcs.cs.princeton.edu/43stack/tobe.txt
  *
  *  A stack of strings, implemented using a linked list.
- *  
+ *
  *  % more tobe.txt 
  *  to be or not to - be - - that - - - is 
- * 
+ *
  *  % java LinkedStackOfStrings < tobe.txt 
  *  to be not that or be
- *  
+ *
  ******************************************************************************/
 
 import java.util.NoSuchElementException;
 
+/**
+ * @author zhcao
+ */
 public class LinkedStackOfStrings {
     private int n;          // size of the stack
     private Node first;     // top of stack
@@ -47,7 +50,9 @@ public class LinkedStackOfStrings {
 
     // delete and return the most recently added element
     public String pop() {
-        if (isEmpty()) throw new NoSuchElementException("stack underflow");
+        if (isEmpty()) {
+            throw new NoSuchElementException("stack underflow");
+        }
         String item = first.item;      // save item to return
         first = first.next;            // delete first node
         n--;
@@ -60,11 +65,15 @@ public class LinkedStackOfStrings {
         LinkedStackOfStrings stack = new LinkedStackOfStrings();
         while (!StdIn.isEmpty()) {
             String item = StdIn.readString();
-            if (!item.equals("-"))     stack.push(item); 
-            else if (stack.isEmpty())  StdOut.println("BAD INPUT"); 
-            else                       StdOut.print(stack.pop());
-        } 
-    } 
+            if (!item.equals("-")) {
+                stack.push(item);
+            } else if (stack.isEmpty()) {
+                StdOut.println("BAD INPUT");
+            } else {
+                StdOut.print(stack.pop());
+            }
+        }
+    }
 
 
 }

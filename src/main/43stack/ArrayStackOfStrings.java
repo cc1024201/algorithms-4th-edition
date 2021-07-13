@@ -2,12 +2,12 @@
  *  Compilation:  javac ArrayStackOfStrings.java
  *  Execution:    java ArrayStackOfStrings
  *  Data files:   https://introcs.cs.princeton.edu/43stack/tobe.txt
- *  
+ *
  *  Stack of strings implementation with a fixed-size array.
  *
  *  % more tobe.txt 
  *  to be or not to - be - - that - - - is 
- * 
+ *
  *  % java ArrayStackOfStrings 5 < tobe.txt 
  *  to be not that or be
  *
@@ -25,11 +25,11 @@ public class ArrayStackOfStrings implements Iterable<String> {
     }
 
     public boolean isEmpty() {
-        return n == 0; 
+        return n == 0;
     }
 
     public boolean isFull() {
-        return n == items.length; 
+        return n == items.length;
     }
 
     public void push(String item) {
@@ -40,18 +40,30 @@ public class ArrayStackOfStrings implements Iterable<String> {
         return items[--n];
     }
 
+    @Override
     public Iterator<String> iterator() {
         return new ReverseArrayIterator();
     }
 
     // an iterator, doesn't implement remove() since it's optional
     private class ReverseArrayIterator implements Iterator<String> {
-        private int i = n-1;
-        public boolean hasNext()  { return i >= 0;                              }
-        public void remove()      { throw new UnsupportedOperationException();  }
+        private int i = n - 1;
 
+        @Override
+        public boolean hasNext() {
+            return i >= 0;
+        }
+
+        @Override
+        public void remove() {
+            throw new UnsupportedOperationException();
+        }
+
+        @Override
         public String next() {
-            if (!hasNext()) throw new NoSuchElementException();
+            if (!hasNext()) {
+                throw new NoSuchElementException();
+            }
             return items[i--];
         }
     }
@@ -63,12 +75,11 @@ public class ArrayStackOfStrings implements Iterable<String> {
         while (!StdIn.isEmpty()) {
             String item = StdIn.readString();
             if (!item.equals("-")) {
-                stack.push(item); 
-            }
-            else {
+                stack.push(item);
+            } else {
                 StdOut.print(stack.pop() + " ");
             }
         }
         StdOut.println();
-    } 
+    }
 } 

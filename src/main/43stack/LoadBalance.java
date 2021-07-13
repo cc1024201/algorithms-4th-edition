@@ -7,7 +7,8 @@
  *  Requests are put on the shortest of a sample of s queues chosen
  *  at random.
  *
- ******************************************************************************/
+ *****************************************************************************
+ * @author zhcao*/
 
 public class LoadBalance {
     public static void main(String[] args) {
@@ -30,7 +31,9 @@ public class LoadBalance {
             Queue<Integer> min = servers.sample();
             for (int k = 1; k < s; k++) {
                 Queue<Integer> queue = servers.sample();
-                if (queue.length() < min.length()) min = queue;
+                if (queue.length() < min.length()) {
+                    min = queue;
+                }
             }
 
             // min is the shortest server queue
@@ -39,9 +42,9 @@ public class LoadBalance {
 
         int i = 0;
         double[] lengths = new double[m];
-        for (Queue<Integer> queue : servers) {
-            lengths[i++] = queue.length();
-            StdDraw.setYscale(0, 2.0*n/m);
+        while (servers.size() > 0) {
+            lengths[i++] = servers.dequeue().length();
+            StdDraw.setYscale(0, 2.0 * n / m);
             StdStats.plotBars(lengths);
         }
     }
