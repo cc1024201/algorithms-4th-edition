@@ -29,6 +29,9 @@
 
 import java.util.Objects;
 
+/**
+ * @author zhcao
+ */
 public class Complex {
     private final double re;   // the real part
     private final double im;   // the imaginary part
@@ -40,10 +43,17 @@ public class Complex {
     }
 
     // return a string representation of the invoking Complex object
+    @Override
     public String toString() {
-        if (im == 0) return re + "";
-        if (re == 0) return im + "i";
-        if (im <  0) return re + " - " + (-im) + "i";
+        if (im == 0) {
+            return re + "";
+        }
+        if (re == 0) {
+            return im + "i";
+        }
+        if (im < 0) {
+            return re + " - " + (-im) + "i";
+        }
         return re + " + " + im + "i";
     }
 
@@ -93,13 +103,18 @@ public class Complex {
 
     // return a new Complex object whose value is the reciprocal of this
     public Complex reciprocal() {
-        double scale = re*re + im*im;
+        double scale = re * re + im * im;
         return new Complex(re / scale, -im / scale);
     }
 
     // return the real or imaginary part
-    public double re() { return re; }
-    public double im() { return im; }
+    public double re() {
+        return re;
+    }
+
+    public double im() {
+        return im;
+    }
 
     // return a / b
     public Complex divides(Complex b) {
@@ -126,7 +141,6 @@ public class Complex {
     public Complex tan() {
         return sin().divides(cos());
     }
-    
 
 
     // a static version of plus
@@ -139,13 +153,18 @@ public class Complex {
 
     // See Section 3.3.
     public boolean equals(Object x) {
-        if (x == null) return false;
-        if (this.getClass() != x.getClass()) return false;
+        if (x == null) {
+            return false;
+        }
+        if (this.getClass() != x.getClass()) {
+            return false;
+        }
         Complex that = (Complex) x;
         return (this.re == that.re) && (this.im == that.im);
     }
 
     // See Section 3.3.
+    @Override
     public int hashCode() {
         return Objects.hash(re, im);
     }

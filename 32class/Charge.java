@@ -2,7 +2,8 @@
  *  Compilation:  javac Charge.java
  *  Execution:    java Charge x y
  *
- ******************************************************************************/
+ *****************************************************************************
+ * @author zhcao*/
 
 public class Charge {
     private final double rx, ry;   // position
@@ -11,16 +12,17 @@ public class Charge {
     public Charge(double x0, double y0, double q0) {
         rx = x0;
         ry = y0;
-        q  = q0;
+        q = q0;
     }
 
     public double potentialAt(double x, double y) {
         double k = 8.99e09;
         double dx = x - rx;
         double dy = y - ry;
-        return k * q / Math.sqrt(dx*dx + dy*dy);
+        return k * q / Math.sqrt(dx * dx + dy * dy);
     }
 
+    @Override
     public String toString() {
         return q + " at (" + rx + ", " + ry + ")";
     }
@@ -34,6 +36,6 @@ public class Charge {
         StdOut.println(c2);
         double v1 = c1.potentialAt(x, y);
         double v2 = c2.potentialAt(x, y);
-        StdOut.println(v1+v2);
+        StdOut.println(v1 + v2);
     }
 }

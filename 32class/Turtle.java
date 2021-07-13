@@ -8,6 +8,9 @@
 
 import java.awt.Color;
 
+/**
+ * @author zhcao
+ */
 public class Turtle {
     private double x, y;     // turtle is at (x, y)
     private double angle;    // facing this many degrees counterclockwise from the x-axis
@@ -71,7 +74,7 @@ public class Turtle {
         double x0 = 0.5;
         double y0 = 0.0;
         double a0 = 60.0;
-        double step = Math.sqrt(3)/2;
+        double step = Math.sqrt(3) / 2;
         Turtle turtle = new Turtle(x0, y0, a0);
         turtle.goForward(step);
         turtle.turnLeft(120.0);
