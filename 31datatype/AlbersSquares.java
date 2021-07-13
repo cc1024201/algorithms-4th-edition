@@ -2,7 +2,7 @@
  *  Compilation:  javac AlbersSquares.java
  *  Execution:    java AlbersSquares r1 g1 b1 r2 g2 b2
  *  Dependencies: StdDraw.java
- *  
+ *
  *  This program displays the colors entered in RGB format
  *  on the command line in the familiar format developed
  *  in the 1960s by the color theorist Josef Albers that
@@ -14,6 +14,9 @@
 
 import java.awt.Color;
 
+/**
+ * @author zhcao
+ */
 public class AlbersSquares {
 
     public static void main(String[] args) {
@@ -43,5 +46,5 @@ public class AlbersSquares {
         StdDraw.filledSquare(0.75, 0.5, 0.2);
         StdDraw.setPenColor(c1);
         StdDraw.filledSquare(0.75, 0.5, 0.1);
-    } 
+    }
 } 

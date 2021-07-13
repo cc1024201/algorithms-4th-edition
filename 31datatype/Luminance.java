@@ -12,19 +12,18 @@
 import java.awt.Color;
 
 /**
- *  The class {@code Luminance} is a library of static methods related to
- *  the monochrome luminance of a color. It supports computing the monochrome
- *  luminance of a color (r, g, b) using the NTSC formula
- *  Y = 0.299*r + 0.587*g + 0.114*b; converting the color to a grayscale color,
- *  and checking whether two colors are compatible.
- *  <p>
- *  For additional documentation, see <a href="https://introcs.cs.princeton.edu/31oop">Section 3.1</a>
- *  of <i>Computer Science: An Interdisciplinary Approach</i>
- *  by Robert Sedgewick and Kevin Wayne. 
+ * The class {@code Luminance} is a library of static methods related to
+ * the monochrome luminance of a color. It supports computing the monochrome
+ * luminance of a color (r, g, b) using the NTSC formula
+ * Y = 0.299*r + 0.587*g + 0.114*b; converting the color to a grayscale color,
+ * and checking whether two colors are compatible.
+ * <p>
+ * For additional documentation, see <a href="https://introcs.cs.princeton.edu/31oop">Section 3.1</a>
+ * of <i>Computer Science: An Interdisciplinary Approach</i>
+ * by Robert Sedgewick and Kevin Wayne.
  *
- *  @author Robert Sedgewick
- *  @author Kevin Wayne
- *
+ * @author Robert Sedgewick
+ * @author Kevin Wayne
  */
 public class Luminance {
 
@@ -50,7 +49,7 @@ public class Luminance {
         int r = color.getRed();
         int g = color.getGreen();
         int b = color.getBlue();
-        return 0.299*r + 0.587*g + 0.114*b;
+        return 0.299 * r + 0.587 * g + 0.114 * b;
     }
 
     /**
@@ -72,13 +71,13 @@ public class Luminance {
      * @param a one color
      * @param b the other color
      * @return {@code true} if colors {\code a} and {\code b} are compatible;
-     *    {@code false} otherwise
+     * {@code false} otherwise
      */
     public static boolean areCompatible(Color a, Color b) {
         return Math.abs(intensity(a) - intensity(b)) >= 128.0;
     }
 
-   /**
+    /**
      * Takes six command-line arguments r1, g1, b1, r2, g2, and b2, prints to
      * standard output the monochrome luminances of (r1, g1, b1) and (r2, g2, b2)
      * and whether they are compatible.

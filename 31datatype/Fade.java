@@ -6,18 +6,21 @@
  *
  *  Produce animated effect, fading from image1.jpg to image2.jpg,
  *  using n-1 intermediate frames.
- *  
+ *
  *
  ******************************************************************************/
 
 import java.awt.Color;
 
+/**
+ * @author zhcao
+ */
 public class Fade {
 
     public static Color combine(Color c1, Color c2, double alpha) {
-        int r = (int) (alpha * c1.getRed()   + (1 - alpha) * c2.getRed());
+        int r = (int) (alpha * c1.getRed() + (1 - alpha) * c2.getRed());
         int g = (int) (alpha * c1.getGreen() + (1 - alpha) * c2.getGreen());
-        int b = (int) (alpha * c1.getBlue()  + (1 - alpha) * c2.getBlue());
+        int b = (int) (alpha * c1.getBlue() + (1 - alpha) * c2.getBlue());
         return new Color(r, g, b);
     }
 
@@ -25,7 +28,7 @@ public class Fade {
         int n = Integer.parseInt(args[0]);         // # of frames
         Picture picture1 = new Picture(args[1]);   // begin picture
         Picture picture2 = new Picture(args[2]);   // end picture
-        int width  = picture1.width();
+        int width = picture1.width();
         int height = picture1.height();
         Picture picture = new Picture(width, height);
         for (int k = 0; k <= n; k++) {

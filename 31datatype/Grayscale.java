@@ -13,11 +13,14 @@
 
 import java.awt.Color;
 
+/**
+ * @author zhcao
+ */
 public class Grayscale {
 
     public static void main(String[] args) {
         Picture picture = new Picture(args[0]);
-        int width  = picture.width();
+        int width = picture.width();
         int height = picture.height();
 
         // convert to grayscale
