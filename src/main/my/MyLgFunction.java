@@ -3,7 +3,7 @@
  *
  * @author zhcao
  */
-public class LgFunction {
+public class MyLgFunction {
     private static int lg(int N) {
         int num = 0;
         while (N / 2 != 0) {
