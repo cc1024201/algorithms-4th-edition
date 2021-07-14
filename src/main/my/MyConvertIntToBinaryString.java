@@ -3,7 +3,7 @@
  *
  * @author zhcao
  */
-public class ConvertIntToBinaryString {
+public class MyConvertIntToBinaryString {
     private static String ConvertIntToBinaryString(int N) {
         String s = "";
         for (int n = N; n > 0; n /= 2) {
