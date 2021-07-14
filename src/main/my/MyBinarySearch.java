@@ -1,9 +1,5 @@
-import java.util.Arrays;
-
 /**
  * 二分查找
- * <p>
- * 没有找到tinyW.txt 重点是rank()
  *
  * @author zhcao
  */
@@ -25,13 +21,8 @@ public class MyBinarySearch {
     }
 
     public static void main(String[] args) {
-        int[] whitelist = In.readInts(args[0]);
-        Arrays.sort(whitelist);
-        while (!StdIn.isEmpty()) {//读取键值，如果不存在于白名单中则将其打印
-            int key = StdIn.readInt();
-            if (rank(key, whitelist) < 0) {
-                StdOut.println(key);
-            }
-        }
+        int[] a = {1, 2, 3, 4, 5, 6, 7};
+        int point = rank(3, a);
+        System.out.printf("%d", point);
     }
 }
