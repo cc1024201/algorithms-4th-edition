@@ -3,7 +3,7 @@
  *
  * @author zhcao
  */
-public class SwapRowsColumns {
+public class MySwapRowsColumns {
     private static void convert(int[][] a) {
         int N = a.length;
         int M = a[0].length;
